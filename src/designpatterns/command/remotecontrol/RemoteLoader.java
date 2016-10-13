@@ -2,17 +2,24 @@ package designpatterns.command.remotecontrol;
 
 import designpatterns.command.appliances.CeilingFan;
 import designpatterns.command.appliances.GarageDoor;
+import designpatterns.command.appliances.Hottub;
 import designpatterns.command.appliances.Light;
 import designpatterns.command.appliances.Stereo;
 import designpatterns.command.appliances.TV;
 import designpatterns.command.commands.CeilingFanOffCommand;
+import designpatterns.command.commands.Command;
 import designpatterns.command.commands.CeilingFanHighCommand;
 import designpatterns.command.commands.GarageDoorDownCommand;
 import designpatterns.command.commands.GarageDoorUpCommand;
+import designpatterns.command.commands.HottubOffCommand;
+import designpatterns.command.commands.HottubOnCommand;
 import designpatterns.command.commands.LightOffCommand;
 import designpatterns.command.commands.LightOnCommand;
+import designpatterns.command.commands.MacroCommand;
 import designpatterns.command.commands.StereoOffWithCdCommand;
 import designpatterns.command.commands.StereoOnWithCdCommand;
+import designpatterns.command.commands.TVOffCommand;
+import designpatterns.command.commands.TVOnCommand;
 
 public class RemoteLoader {
 	
@@ -65,8 +72,38 @@ public class RemoteLoader {
 		remoteControl.offButtonWasPushed(4);
 		
 		//create macro command and assign to next location
-		//Light light = new Light("Living Room");
-		//TV tv = new TV("Livinf Room");
+		Light light = new Light("Living Room");
+		TV tv = new TV("Living Room");
+		Stereo stereoAnother = new Stereo("Living Room");
+		Hottub hottub = new Hottub();
+		
+		LightOnCommand lightOn = new LightOnCommand(light);
+		StereoOnWithCdCommand stereoOn = new StereoOnWithCdCommand(stereoAnother);
+		TVOnCommand tvOn = new TVOnCommand(tv);
+		HottubOnCommand hottubOn = new HottubOnCommand(hottub);
+		
+		LightOffCommand lightOff = new LightOffCommand(light);
+		StereoOffWithCdCommand stereoOff = new StereoOffWithCdCommand(stereoAnother);
+		TVOffCommand tvOff = new TVOffCommand(tv);
+		HottubOffCommand hottubOff = new HottubOffCommand(hottub);
+		
+		Command[] partyOn = {lightOn,stereoOn,tvOn,hottubOn};
+		Command[] partyOff = {lightOff,stereoOff,tvOff,hottubOff};
+		
+		MacroCommand partOnMacro = new MacroCommand(partyOn);
+		MacroCommand partOffMacro = new MacroCommand(partyOff);
+		
+		remoteControl.setCommands(5, partOnMacro, partOffMacro);
+		
+		System.out.println("------- Pushing Macro On -------");
+		remoteControl.onButtomWasPushed(5);
+		System.out.println("------- Pushing Macro On -------");
+		remoteControl.offButtonWasPushed(5);
+		
+		System.out.println(remoteControl);
+		//remoteControl.undoButtonWasPushed();
+		
+		
 		
 	}
 
