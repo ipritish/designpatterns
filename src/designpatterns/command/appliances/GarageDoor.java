@@ -1,8 +1,12 @@
-package designpatterns.command;
+package designpatterns.command.appliances;
 
 public class GarageDoor {
 	
-	public void on(){
+	String location;
+	public GarageDoor(String loc) {
+		this.location = loc;
+	}
+	public void up(){
 		System.out.println("open garage door ..");
 	}
 	

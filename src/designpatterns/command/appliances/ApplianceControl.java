@@ -1,4 +1,4 @@
-package designpatterns.command;
+package designpatterns.command.appliances;
 
 public class ApplianceControl {
 	
