@@ -1,7 +1,5 @@
 package designpatterns.command.uselambda;
 
-import javax.swing.event.CellEditorListener;
-
 import designpatterns.command.appliances.CeilingFan;
 import designpatterns.command.appliances.GarageDoor;
 import designpatterns.command.appliances.Light;
