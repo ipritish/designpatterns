@@ -27,11 +27,11 @@ public class Amplifier {
 	}
 	
 	public void on(){
-		
+		System.out.println("amplifier on ..");
 	}
 	
 	public void off(){
-		
+		System.out.println("amplifier off ..");
 	}
 	
 	public void setStereoSound(){
@@ -45,6 +45,10 @@ public class Amplifier {
 	public void setVolume(int volume){
 		this.volume = volume;
 		System.out.println("setting volume to " + volume);
+	}
+	
+	public int getVolume(){
+		return this.volume;
 	}
 	
 	
