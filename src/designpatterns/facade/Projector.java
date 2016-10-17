@@ -13,19 +13,23 @@ public class Projector {
 	}
 	
 	public void on(){
-		
+		System.out.println("projector on .. ");
 	}
 	
 	public void off(){
-		
+		System.out.println("projector off ..");
 	}
 	
 	public void tvMode(){
-		
+		System.out.println("set tv mode .. ");
 	}
 	
-	public void wildScreenMode(){
-		
+	public void setInput(DvdPlayer dvd){
+		this.setDvdPlayer(dvd);
+	}
+	
+	public void wideScreenMode(){
+		System.out.println("set wide screen mode .. ");
 	}
 	
 }

@@ -28,10 +28,39 @@ public class HomeTheaterFacade {
 	
 	public void watchMovies(String movie){
 		
+		System.out.println("Get ready to watch the movie ..");
+		popper.on();
+		popper.pop();
+		
+		lights.dim(10);
+		
+		screen.down();
+		
+		projector.on();
+		projector.setInput(dvd);
+		projector.wideScreenMode();
+		
+		amp.on();
+		amp.setDvdPlayer(dvd);
+		amp.setSurroundSound();
+		amp.setVolume(10);
+		
+		dvd.on();
+		dvd.play(movie);
+		
 	}
 	
 	public void endMovie(){
 		
+		System.out.println("Shutting movie theater down ..");
+		popper.off();
+		lights.on();
+		screen.up();
+		projector.off();
+		amp.off();
+		dvd.stop();
+		dvd.eject();
+		dvd.off();
 	}
 
 }
