@@ -1,4 +1,4 @@
-package designpatterns.proxy;
+package designpatterns.proxy.virtual;
 
 import java.awt.Graphics;
 
